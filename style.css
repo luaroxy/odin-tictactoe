@@ -1,2 +1,37 @@
 @import url(normalize.css);
 
+@font-face {
+    font-family: 'Pina Colada';
+    src: url(fonts/Pina\ Colada\ Creation.ttf);
+}
+
+.container{
+    height: 100vh;
+    background: url(images/texture.jpg);
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.title{
+    margin: 0;
+    font-family: Pina Colada;
+    font-size: 3rem;
+    padding: 3rem;
+}
+
+.game{
+    background-color: black;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr);
+    gap: 0.1rem;
+    width: 15rem;
+    height: 15rem;
+}
+
+.cell{
+    background-color: white;
+}
+
