@@ -12,7 +12,6 @@
 
     <div class="gameContainer" id="gameContainer">
         <div class="container">
-
             <div class="game">
                 <div class="cell" onclick="game(this)" data-array="0"></div>
                 <div class="cell" onclick="game(this)" data-array="1"></div>
@@ -33,23 +32,37 @@
     </div>
 
     <div class="newgame-popup" id="newGamepopup">
-        <form class="form-container" id="newGameForm">
-                <div class="playerName">
-                    <label for="playerX"><b>Player X Name:</b></label>
-                    <input type="text" name="playerX" placeholder="Name" value="Player X">
-                </div>
-
-                <p>X</p>
-                
-                <div class="playerName">
-                    <label for="playerO"><b>Player O Name:</b></label>
-                    <input type="text" name="playerO" placeholder="Name" value="Player O">
-                </div>
-            
-            <div class="newgameButtonContainer">
-                <button type="submit" id="addBtn" class="btn">Start</button>
+        <div class="initialScreen" id="initialScreen">
+            <p> Select number of players:</p>
+            <div class="initialButtons">
+                <button onclick="onePlayer()">1 Player</button>
+                <button onclick="twoPlayers()">2 Players</button>
             </div>
-        </form>
+        </div>
+        <div class="formContainer" id="formContainer">
+            <form class="form-container" id="newGameForm">
+                    <div class="playerName">
+                        <label for="playerX"><b>Player X Name:</b></label>
+                        <input type="text" name="playerX" placeholder="Name" value="Player X">
+                    </div>
+
+                    <p>X</p>
+                    
+                    <div class="playerName" id="player2Human">
+                        <label for="playerO"><b>Player O Name:</b></label>
+                        <input type="text" name="playerO" placeholder="Name" value="Player O">
+                    </div>
+                    
+                    <div class="playerName" id="player2Computer">
+                        <p><b>Player O Name:</b><p>
+                        <p>Computer</p>
+                    </div>
+
+                <div class="newgameButtonContainer">
+                    <button type="submit" id="addBtn" class="btn">Start</button>
+                </div>
+            </form>
+        </div>
     </div>
 
     <div class="displayResult" id="displayResult">

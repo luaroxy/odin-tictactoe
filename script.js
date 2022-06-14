@@ -5,6 +5,14 @@ const Gameboard = (() => {
         gameboard = ["", "", "", "", "", "", "", "", ""];
     }
     
+    function computerMove(){
+        do {
+            random = Math.floor(Math.random() * gameboard.length);
+        }
+        while (gameboard[random]!= "");
+        return random;
+    }
+
     const updateGameboard = (x,symbol) => {
         gameboard[x]=symbol;
     };
@@ -49,6 +57,8 @@ const Gameboard = (() => {
             displayResult.style.display = "block";
             gameOver=true;
         }
+
+        return gameOver;
     }
 
     const _CaseWin = (caseArray, data1, data2, data3) => {
@@ -58,7 +68,7 @@ const Gameboard = (() => {
     const _allEqual = arr => arr.every(val => val === arr[0]);
 
 
-    return {updateGameboard, displayGameboard, checkWinner, resetGameboard};
+    return {updateGameboard, displayGameboard, checkWinner, resetGameboard, computerMove};
 })();
 
 const Player = (name, symbol) => {
@@ -66,27 +76,42 @@ const Player = (name, symbol) => {
 };
 
 function game(e){
-    x=e.dataset.array;
-    if (e.innerText == ""){
-        if (player1Turn) {
-            symbol = player1.symbol;
-            player1Turn = false;
+    if (!Gameboard.checkWinner()){
+        x=e.dataset.array;
+        if (e.innerText == ""){
+            if (computer){
+                Gameboard.updateGameboard(x,player1.symbol);
+                Gameboard.displayGameboard();
+                if (!Gameboard.checkWinner()){
+                    y=Gameboard.computerMove();
+                    Gameboard.updateGameboard(y,player2.symbol);
+                    Gameboard.displayGameboard();
+                    Gameboard.checkWinner();
+                }
+            }else {
+                if (player1Turn) {
+                    symbol = player1.symbol;
+                    player1Turn = false;
+                } else {
+                    symbol = player2.symbol;
+                    player1Turn = true;
+                }
+                Gameboard.updateGameboard(x,symbol);
+                Gameboard.displayGameboard();
+                Gameboard.checkWinner();
+            }
         } else {
-            symbol = player2.symbol;
-            player1Turn = true;
+            alert("This spot is already taken!");
         }
-        Gameboard.updateGameboard(x,symbol);
-        Gameboard.displayGameboard();
-        Gameboard.checkWinner();
-    } else {
-        alert("This spot is already taken!");
+    }
 }
-}
-
-let player1Turn = true;
 
 function openForm() {
     document.getElementById("newGamepopup").style.display = "block";
+    document.getElementById("formContainer").style.display = "none";
+    document.getElementById("player2Computer").style.display = "none";
+    document.getElementById("player2Human").style.display = "none";
+    document.getElementById("initialScreen").style.display = "block";
     restartGame();
 }
 
@@ -94,14 +119,29 @@ function closeForm() {
    document.getElementById("newGamepopup").style.display  = "none";
 }
 
+function onePlayer(){
+    document.getElementById("initialScreen").style.display = "none";
+    document.getElementById("formContainer").style.display = "block";
+    document.getElementById("player2Computer").style.display = "block";
+    computer = true;
+}
+
+function twoPlayers(){
+    document.getElementById("initialScreen").style.display = "none";
+    document.getElementById("formContainer").style.display = "block";
+    document.getElementById("player2Human").style.display = "block";
+    computer = false;
+}
+
 const form = document.getElementById("newGameForm");
 form.addEventListener("submit", function (e) {
-	e.preventDefault();
+   e.preventDefault();
    let form = document.getElementById("newGameForm");
    let player1Name = form.elements["playerX"];
    let player2Name = form.elements["playerO"];
    player1 = Player(player1Name.value, "X");
    player2 = Player (player2Name.value, "O");
+   player1Turn = true;
    closeForm();
    document.getElementById("gameContainer").style.display = "block";
 });

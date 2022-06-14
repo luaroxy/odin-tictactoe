@@ -74,8 +74,30 @@ button{
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 3;
+    max-width: 25rem;
+    padding: 1.5rem;
+    background-color: white;
+    border: 0.15rem solid black;
+    border-radius: 0.8rem;
+    box-shadow: 7px 8px 8px rgb(175, 172, 172);
+    letter-spacing: .08em;
 }
 
+.initialScreen{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.initialScreen p{
+    margin:0;
+    font-weight: 800;
+}
+
+.initialButtons{
+    display: flex;
+    gap: 3rem;
+}
 .displayResult{
     display: none;
     position: fixed;
@@ -89,13 +111,11 @@ button{
     color: white;
 }
 
+.formContainer, #player2Human, #player2Computer{
+    display: none;
+}
+
 .form-container {
-    max-width: 25rem;
-    padding: 1.5rem;
-    background-color: white;
-    border: 0.15rem solid black;
-    border-radius: 0.8rem;
-    box-shadow: 7px 8px 8px rgb(175, 172, 172);
     display: grid;
     grid-template-columns: 4fr 1fr 4fr;
     justify-content: center;
@@ -112,6 +132,20 @@ button{
 .form-container p{
     justify-self: center;
 }
+
+#player2Computer p{
+    margin: 0;
+}
+
+#player2Computer p:first-child{
+    margin-bottom: 0.5rem;
+}
+
+#player2Human input{
+    margin-top: 0.5rem;
+}
+
+
 .playerName{
     display: flex;
     flex-direction: column;
