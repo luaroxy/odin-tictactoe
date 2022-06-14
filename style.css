@@ -5,23 +5,32 @@
     src: url(fonts/Pina\ Colada\ Creation.ttf);
 }
 
-*{
+body{
+    height: 100vh;
+    background: url(images/firstpage.jpg);
+    background-size: cover;
     font-family: Pina Colada;
 }
+.gameContainer{
+    display: none;
+}
+
 .container{
     height: 100vh;
-    background: url(images/texture.jpg);
-    background-size: cover;
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
 }
 
 .title{
+    position: fixed;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -5%);
     margin: 0;
     font-family: Pina Colada;
     font-size: 3rem;
-    padding: 3rem;
 }
 
 .game{
@@ -60,7 +69,6 @@ button{
 }
 
 .newgame-popup {
-    display: none;
     position: fixed;
     top: 50%;
     left: 50%;

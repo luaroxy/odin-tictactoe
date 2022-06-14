@@ -103,6 +103,7 @@ form.addEventListener("submit", function (e) {
    player1 = Player(player1Name.value, "X");
    player2 = Player (player2Name.value, "O");
    closeForm();
+   document.getElementById("gameContainer").style.display = "block";
 });
 
 function restartGame(){

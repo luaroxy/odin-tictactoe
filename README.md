@@ -10,4 +10,4 @@ Tic Tac Toe created with JavaScript using Factory Functions and Module Pattern
 # Resources Used
 Font: <a href="https://www.dafont.com/themes.php">Dafont </a>
 \
-Paper texture (background): <a href="https://unsplash.com/photos/XFWiZTa2Ub0">SJ Objio</a> on <a href="https://unsplash.com/">Unsplash</a>
+Background: <a href="https://unsplash.com/photos/iCp8p7wVXS0">Matthew Davis</a> on <a href="https://unsplash.com/">Unsplash</a>

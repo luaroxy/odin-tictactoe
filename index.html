@@ -7,27 +7,29 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <p class="title">Tic Tac Toe</p>
 
-        <div class="game">
-            <div class="cell" onclick="game(this)" data-array="0"></div>
-            <div class="cell" onclick="game(this)" data-array="1"></div>
-            <div class="cell" onclick="game(this)" data-array="2"></div>
-            <div class="cell" onclick="game(this)" data-array="3"></div>
-            <div class="cell" onclick="game(this)" data-array="4"></div>
-            <div class="cell" onclick="game(this)" data-array="5"></div>
-            <div class="cell" onclick="game(this)" data-array="6"></div>
-            <div class="cell" onclick="game(this)" data-array="7"></div>
-            <div class="cell" onclick="game(this)" data-array="8"></div>
+    <p class="title">Tic Tac Toe</p>
+
+    <div class="gameContainer" id="gameContainer">
+        <div class="container">
+
+            <div class="game">
+                <div class="cell" onclick="game(this)" data-array="0"></div>
+                <div class="cell" onclick="game(this)" data-array="1"></div>
+                <div class="cell" onclick="game(this)" data-array="2"></div>
+                <div class="cell" onclick="game(this)" data-array="3"></div>
+                <div class="cell" onclick="game(this)" data-array="4"></div>
+                <div class="cell" onclick="game(this)" data-array="5"></div>
+                <div class="cell" onclick="game(this)" data-array="6"></div>
+                <div class="cell" onclick="game(this)" data-array="7"></div>
+                <div class="cell" onclick="game(this)" data-array="8"></div>
+            </div>
+
+            <div class="buttonContainer">
+                <button onclick="openForm()">Start New Game</button>
+                <button onclick="restartGame()">Restart</button>
+            </div>
         </div>
-
-        <div class="buttonContainer">
-            <button onclick="openForm()">Start New Game</button>
-            <button onclick="restartGame()">Restart</button>
-        </div>
-        
-
     </div>
 
     <div class="newgame-popup" id="newGamepopup">
