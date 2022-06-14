@@ -1,9 +1,12 @@
 const Gameboard = (() => {
     let gameboard = ["", "", "", "", "", "", "", "", ""];
+
+    function resetGameboard() {
+        gameboard = ["", "", "", "", "", "", "", "", ""];
+    }
     
     const updateGameboard = (x,symbol) => {
         gameboard[x]=symbol;
-       // return gameboard;
     };
 
     const displayGameboard = () => {
@@ -25,11 +28,16 @@ const Gameboard = (() => {
         let caseWin8 = _CaseWin([gameboard[2], gameboard[4], gameboard[6]], 2, 4, 6);
         let cases = [caseWin1, caseWin2, caseWin3, caseWin4, caseWin5, caseWin6, caseWin7, caseWin8];
 
+        displayResult = document.getElementById("displayResult");
+
         cases.forEach(element => {
             if (_allEqual(element.caseArray) && element.caseArray[0]!="") {
                 gameOver = true;
-                console.log(`Player ${element.caseArray[0]} Wins!`);
-
+                if (element.caseArray[0]=="X"){
+               // console.log(`Player ${element.caseArray[0]} Wins!`);
+               displayResult.textContent =`${player1.name} Wins!`;
+                } else displayResult.textContent =`${player2.name} Wins!`;
+                displayResult.style.display = "block";
                 // Add color background to the winner cells
                 cellWinners = document.querySelectorAll(`[data-array="${element.data1}"], [data-array="${element.data2}"], [data-array="${element.data3}"]`);
                 cellWinners.forEach(e => e.style.backgroundColor = "palegreen");
@@ -37,7 +45,8 @@ const Gameboard = (() => {
         });
 
         if (!gameboard.includes("")&& gameOver==false){
-            console.log("It's a tie!")
+            displayResult.textContent ="It's a tie!";
+            displayResult.style.display = "block";
             gameOver=true;
         }
     }
@@ -49,16 +58,12 @@ const Gameboard = (() => {
     const _allEqual = arr => arr.every(val => val === arr[0]);
 
 
-    return {updateGameboard, displayGameboard, checkWinner};
+    return {updateGameboard, displayGameboard, checkWinner, resetGameboard};
 })();
 
-const Player = (symbol) => {
-    return {symbol};
+const Player = (name, symbol) => {
+    return {name, symbol};
 };
-
-player1 = Player("X");
-player2 = Player ("O");
-let = player1Turn = true;
 
 function game(e){
     x=e.dataset.array;
@@ -76,4 +81,34 @@ function game(e){
     } else {
         alert("This spot is already taken!");
 }
+}
+
+let player1Turn = true;
+
+function openForm() {
+    document.getElementById("newGamepopup").style.display = "block";
+    restartGame();
+}
+
+function closeForm() {
+   document.getElementById("newGamepopup").style.display  = "none";
+}
+
+const form = document.getElementById("newGameForm");
+form.addEventListener("submit", function (e) {
+	e.preventDefault();
+   let form = document.getElementById("newGameForm");
+   let player1Name = form.elements["playerX"];
+   let player2Name = form.elements["playerO"];
+   player1 = Player(player1Name.value, "X");
+   player2 = Player (player2Name.value, "O");
+   closeForm();
+});
+
+function restartGame(){
+    Gameboard.resetGameboard();
+    Gameboard.displayGameboard();
+    document.getElementById("displayResult").style.display  = "none";
+    cells = document.querySelectorAll(".cell");
+    cells.forEach(e => e.style.backgroundColor = "rgba(255, 255, 255, 0.637)");
 }

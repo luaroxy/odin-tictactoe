@@ -5,6 +5,9 @@
     src: url(fonts/Pina\ Colada\ Creation.ttf);
 }
 
+*{
+    font-family: Pina Colada;
+}
 .container{
     height: 100vh;
     background: url(images/texture.jpg);
@@ -22,16 +25,96 @@
 }
 
 .game{
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.445);
     display: grid;
     grid-template-columns: repeat(3,1fr);
     grid-template-rows: repeat(3,1fr);
     gap: 0.1rem;
-    width: 15rem;
-    height: 15rem;
+    width: 17rem;
+    height: 17rem;
 }
 
 .cell{
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.637);
+    font-family: Pina Colada;
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+.buttonContainer{
+    display: flex;
+    justify-content: space-around;
+    width: 17rem;
+    margin-top: 1rem;
+    font-family: Pina Colada; 
+    font-size: 1.2rem;
+}
+
+button{
+    padding: 0.6rem;
+    padding-bottom: 0.2rem;
+    display: flex;
+    border-radius: 0.5rem;
+}
+
+.newgame-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+}
+
+.displayResult{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    font-size: 5rem;
+    letter-spacing: .1em;
+    text-shadow: black 1px 0 15px;
+    color: white;
+}
+
+.form-container {
+    max-width: 25rem;
+    padding: 1.5rem;
+    background-color: white;
+    border: 0.15rem solid black;
+    border-radius: 0.8rem;
+    box-shadow: 7px 8px 8px rgb(175, 172, 172);
+    display: grid;
+    grid-template-columns: 4fr 1fr 4fr;
+    justify-content: center;
+}
+
+.form-container input{
+    border: 0.1rem solid black;
+    background: #88888850;
+    border-radius: 0.3rem;
+    width: 95%;
+    margin-bottom: 1rem;
+}
+
+.form-container p{
+    justify-self: center;
+}
+.playerName{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-container button{
+    width: 3rem;
+    padding-left: 0.5rem;
+}
+.newgameButtonContainer{
+    grid-column: 1 / 4;
+    justify-self: end;
+}

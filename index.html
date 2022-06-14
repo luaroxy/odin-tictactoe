@@ -10,19 +10,48 @@
     <div class="container">
         <p class="title">Tic Tac Toe</p>
 
-        <div class="gameContainer">
-            <div class="game">
-                <div class="cell" onclick="game(this)" data-array="0"></div>
-                <div class="cell" onclick="game(this)" data-array="1"></div>
-                <div class="cell" onclick="game(this)" data-array="2"></div>
-                <div class="cell" onclick="game(this)" data-array="3"></div>
-                <div class="cell" onclick="game(this)" data-array="4"></div>
-                <div class="cell" onclick="game(this)" data-array="5"></div>
-                <div class="cell" onclick="game(this)" data-array="6"></div>
-                <div class="cell" onclick="game(this)" data-array="7"></div>
-                <div class="cell" onclick="game(this)" data-array="8"></div>
-            </div>
+        <div class="game">
+            <div class="cell" onclick="game(this)" data-array="0"></div>
+            <div class="cell" onclick="game(this)" data-array="1"></div>
+            <div class="cell" onclick="game(this)" data-array="2"></div>
+            <div class="cell" onclick="game(this)" data-array="3"></div>
+            <div class="cell" onclick="game(this)" data-array="4"></div>
+            <div class="cell" onclick="game(this)" data-array="5"></div>
+            <div class="cell" onclick="game(this)" data-array="6"></div>
+            <div class="cell" onclick="game(this)" data-array="7"></div>
+            <div class="cell" onclick="game(this)" data-array="8"></div>
         </div>
+
+        <div class="buttonContainer">
+            <button onclick="openForm()">Start New Game</button>
+            <button onclick="restartGame()">Restart</button>
+        </div>
+        
+
+    </div>
+
+    <div class="newgame-popup" id="newGamepopup">
+        <form class="form-container" id="newGameForm">
+                <div class="playerName">
+                    <label for="playerX"><b>Player X Name:</b></label>
+                    <input type="text" name="playerX" placeholder="Name" value="Player X">
+                </div>
+
+                <p>X</p>
+                
+                <div class="playerName">
+                    <label for="playerO"><b>Player O Name:</b></label>
+                    <input type="text" name="playerO" placeholder="Name" value="Player O">
+                </div>
+            
+            <div class="newgameButtonContainer">
+                <button type="submit" id="addBtn" class="btn">Start</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="displayResult" id="displayResult">
+
     </div>
 </body>
 </html>
