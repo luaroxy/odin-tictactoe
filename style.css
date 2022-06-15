@@ -11,17 +11,6 @@ body{
     background-size: cover;
     font-family: Pina Colada;
 }
-.gameContainer{
-    display: none;
-}
-
-.container{
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
 
 .title{
     position: fixed;
@@ -29,45 +18,10 @@ body{
     left: 50%;
     transform: translate(-50%, -5%);
     margin: 0;
-    font-family: Pina Colada;
     font-size: 3rem;
 }
 
-.game{
-    background-color: rgba(0, 0, 0, 0.445);
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    grid-template-rows: repeat(3,1fr);
-    gap: 0.1rem;
-    width: 17rem;
-    height: 17rem;
-}
-
-.cell{
-    background-color: rgba(255, 255, 255, 0.637);
-    font-family: Pina Colada;
-    font-size: 3rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.buttonContainer{
-    display: flex;
-    justify-content: space-around;
-    width: 17rem;
-    margin-top: 1rem;
-    font-family: Pina Colada; 
-    font-size: 1.2rem;
-}
-
-button{
-    padding: 0.6rem;
-    padding-bottom: 0.2rem;
-    display: flex;
-    border-radius: 0.5rem;
-}
-
+/*Form box*/
 .newgame-popup {
     position: fixed;
     top: 50%;
@@ -83,6 +37,7 @@ button{
     letter-spacing: .08em;
 }
 
+/* Select number of players screen */
 .initialScreen{
     display: flex;
     flex-direction: column;
@@ -98,21 +53,11 @@ button{
     display: flex;
     gap: 3rem;
 }
-.displayResult{
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    font-size: 5rem;
-    letter-spacing: .1em;
-    text-shadow: black 1px 0 15px;
-    color: white;
-}
 
+
+/*Enter player names screen*/
 .formContainer, #player2Human, #player2Computer{
-    display: none;
+    display: none; /*start display none and will be updated on JS*/
 }
 
 .form-container {
@@ -145,7 +90,6 @@ button{
     margin-top: 0.5rem;
 }
 
-
 .playerName{
     display: flex;
     flex-direction: column;
@@ -156,6 +100,66 @@ button{
     width: 3rem;
     padding-left: 0.5rem;
 }
+
+/* Game */
+.gameContainer{
+    display: none; /*start display none and will be updated on JS*/
+}
+
+.container{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.game{
+    background-color: rgba(0, 0, 0, 0.445);
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr);
+    gap: 0.1rem;
+    width: 17rem;
+    height: 17rem;
+}
+
+.cell{
+    background-color: rgba(255, 255, 255, 0.637);
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonContainer{
+    display: flex;
+    justify-content: space-around;
+    width: 17rem;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+}
+
+button{
+    padding: 0.6rem;
+    padding-bottom: 0.2rem;
+    display: flex;
+    border-radius: 0.5rem;
+}
+
+.displayResult{
+    display: none; /*start display none and will be updated on JS*/
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    font-size: 5rem;
+    letter-spacing: .1em;
+    text-shadow: black 1px 0 15px;
+    color: white;
+}
+
 .newgameButtonContainer{
     grid-column: 1 / 4;
     justify-self: end;
