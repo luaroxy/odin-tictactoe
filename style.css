@@ -18,7 +18,7 @@ body{
     left: 50%;
     transform: translate(-50%, -5%);
     margin: 0;
-    font-size: 3rem;
+    font-size: calc(3rem + 1vw);
 }
 
 /*Form box*/
@@ -28,13 +28,13 @@ body{
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 3;
-    max-width: 25rem;
     padding: 1.5rem;
     background-color: white;
     border: 0.15rem solid black;
     border-radius: 0.8rem;
     box-shadow: 7px 8px 8px rgb(175, 172, 172);
     letter-spacing: .08em;
+    font-size: calc(0.4rem + 1vw);
 }
 
 /* Select number of players screen */
@@ -97,7 +97,7 @@ body{
 }
 
 .form-container button{
-    width: 3rem;
+    width: calc(3rem + 1vw);
     padding-left: 0.5rem;
 }
 
@@ -120,13 +120,13 @@ body{
     grid-template-columns: repeat(3,1fr);
     grid-template-rows: repeat(3,1fr);
     gap: 0.1rem;
-    width: 17rem;
-    height: 17rem;
+    width: calc(12rem + 10vw);
+    height: calc(12rem + 10vw);
 }
 
 .cell{
     background-color: rgba(255, 255, 255, 0.637);
-    font-size: 3rem;
+    font-size: calc(3rem + 1vw);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -135,9 +135,9 @@ body{
 .buttonContainer{
     display: flex;
     justify-content: space-around;
-    width: 17rem;
+    width: calc(17rem + 1vw);
     margin-top: 1rem;
-    font-size: 1.2rem;
+    font-size: calc(0.5rem + 1vw);
 }
 
 button{
@@ -145,6 +145,7 @@ button{
     padding-bottom: 0.2rem;
     display: flex;
     border-radius: 0.5rem;
+    justify-content: center;
 }
 
 .displayResult{
@@ -154,7 +155,7 @@ button{
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
-    font-size: 5rem;
+    font-size: calc(3rem + 1vw);
     letter-spacing: .1em;
     text-shadow: black 1px 0 15px;
     color: white;
