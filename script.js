@@ -97,7 +97,7 @@ function game(e){
                 if (!Gameboard.checkWinner()){ //only do computer move if game is not over
                     y=Gameboard.computerMove();
                     Gameboard.updateGameboard(y,player2.symbol);
-                    Gameboard.displayGameboard();
+                    setTimeout('Gameboard.displayGameboard();',400); //delay 0.4s (computer thinking)
                     Gameboard.checkWinner();
                 }
             }else { //if playing again another player
